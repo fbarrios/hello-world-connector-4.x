@@ -1,5 +1,9 @@
 package org.mule.modules.helloworld.config;
 
+import org.mule.modules.helloworld.extension.operation.HelloWorldConnectorOperations;
+import org.mule.runtime.extension.api.annotation.Operations;
+
+@Operations({HelloWorldConnectorOperations.class})
 public class ConnectorConfig {
 
     /**
