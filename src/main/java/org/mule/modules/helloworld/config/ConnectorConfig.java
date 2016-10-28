@@ -2,26 +2,28 @@ package org.mule.modules.helloworld.config;
 
 import org.mule.modules.helloworld.extension.operation.HelloWorldConnectorOperations;
 import org.mule.runtime.extension.api.annotation.Operations;
+import org.mule.runtime.extension.api.annotation.Parameter;
+import org.mule.runtime.extension.api.annotation.param.Optional;
 
-@Operations({HelloWorldConnectorOperations.class})
+@Operations(HelloWorldConnectorOperations.class)
 public class ConnectorConfig {
 
     /**
      * Greeting message
      */
-    @org.mule.runtime.extension.api.annotation.Parameter
-    @org.mule.runtime.extension.api.annotation.param.Optional(defaultValue = "Hello")
+    @Parameter
+    @Optional(defaultValue = "Hello")
     private String greeting;
 
     /**
      * Reply message
      */
-    @org.mule.runtime.extension.api.annotation.Parameter
-    @org.mule.runtime.extension.api.annotation.param.Optional(defaultValue = "How are you?")
+    @Parameter
+    @Optional(defaultValue = "How are you?")
     private String reply;
 
-    @org.mule.runtime.extension.api.annotation.Parameter
-    @org.mule.runtime.extension.api.annotation.param.Optional(defaultValue = "Bye")
+    @Parameter
+    @Optional(defaultValue = "Bye")
     private String farewell;
 
     /**
