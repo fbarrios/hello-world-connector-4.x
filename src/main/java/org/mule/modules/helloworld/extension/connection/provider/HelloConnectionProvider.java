@@ -6,7 +6,7 @@ import org.mule.runtime.api.connection.ConnectionProvider;
 import org.mule.runtime.api.connection.ConnectionValidationResult;
 import org.mule.runtime.extension.api.annotation.Alias;
 
-@Alias("HelloWorldConnectorConfiguration-connection")
+@Alias("config")
 public class HelloConnectionProvider implements ConnectionProvider<HelloWorldConnection> {
 
     @Override
