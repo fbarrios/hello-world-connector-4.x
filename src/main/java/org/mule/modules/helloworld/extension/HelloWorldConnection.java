@@ -1,9 +1,9 @@
 package org.mule.modules.helloworld.extension;
 
 import org.apache.log4j.Logger;
-import org.mule.runtime.core.api.MuleException;
-import org.mule.runtime.core.api.lifecycle.InitialisationException;
-import org.mule.runtime.core.api.lifecycle.Lifecycle;
+import org.mule.runtime.api.exception.MuleException;
+import org.mule.runtime.api.lifecycle.InitialisationException;
+import org.mule.runtime.api.lifecycle.Lifecycle;
 
 public class HelloWorldConnection implements Lifecycle {
 
