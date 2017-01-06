@@ -42,8 +42,8 @@ public class HelloWorldConnectorOperations {
      *
      * @return The content of the stream, as a String.
      */
-    public String getStreamData(@Content InputStream stream, @Optional(defaultValue = "\n") String lineSep) {
-        return new BufferedReader(new InputStreamReader(stream)).lines().collect(joining(lineSep));
+    public String getStreamData(@Content Object stream, @Optional(defaultValue = "\n") String lineSep) {
+        return new BufferedReader(new InputStreamReader((InputStream) stream)).lines().collect(joining(lineSep));
     }
 
 }
