@@ -1,7 +1,15 @@
 package org.mule.modules.helloworld.extension.operation;
 
 import org.mule.modules.helloworld.extension.HelloWorldExtension;
+import org.mule.runtime.extension.api.annotation.param.Content;
+import org.mule.runtime.extension.api.annotation.param.Optional;
 import org.mule.runtime.extension.api.annotation.param.UseConfig;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import static java.util.stream.Collectors.joining;
 
 public class HelloWorldConnectorOperations {
 
@@ -25,6 +33,17 @@ public class HelloWorldConnectorOperations {
      */
     public String sayGoodbye(@UseConfig HelloWorldExtension config, String friend) {
         return config.getFarewell() + " " + friend + "!";
+    }
+
+    /**
+     * Returns the contents of an InputStream.
+     *
+     * @param stream
+     *
+     * @return The content of the stream, as a String.
+     */
+    public String getStreamData(@Content InputStream stream, @Optional(defaultValue = "\n") String lineSep) {
+        return new BufferedReader(new InputStreamReader(stream)).lines().collect(joining(lineSep));
     }
 
 }

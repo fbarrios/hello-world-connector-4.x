@@ -5,12 +5,10 @@
       xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
       http://www.mulesoft.org/schema/mule/hello-world http://www.mulesoft.org/schema/mule/hello-world/current/mule-hello-world.xsd">
 
-    <flow name="greet-flow-op">
-        <hello-world:greet friend="Fede" />
-    </flow>
-
-    <flow name="say-goodbye-flow-op">
-        <hello-world:say-goodbye friend="Fede" />
+    <flow name="get-stream-flow">
+        <hello-world:get-stream-data>
+            <hello-world:stream>#[payload]</hello-world:stream>
+        </hello-world:get-stream-data>
     </flow>
 
 </mule>

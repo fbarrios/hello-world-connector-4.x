@@ -1,7 +1,6 @@
 package org.mule.modules.helloworld.automation.functional;
 
 import org.junit.Test;
-import org.mule.functional.junit4.FlowRunner;
 import org.mule.functional.junit4.MuleArtifactFunctionalTestCase;
 import org.mule.runtime.core.api.Event;
 
@@ -9,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 public class GreetTestCase extends MuleArtifactFunctionalTestCase {
 
-    public static final String FLOW_CONFIG_LOCATION = "extension-operations.xml";
+    public static final String FLOW_CONFIG_LOCATION = "operation-greet.xml";
 
     @Override
     protected String[] getConfigFiles() {
@@ -18,9 +17,8 @@ public class GreetTestCase extends MuleArtifactFunctionalTestCase {
 
     @Test
     public void testGreetFlow() throws Exception {
-        FlowRunner flowRunner = flowRunner("greet-flow-op");
-        Event run = flowRunner.run();
-        assertEquals(run.getMessage().getPayload().getValue(), "Hello Fede. How are you?");
+        Event event = flowRunner("greet-flow").run();
+        assertEquals(event.getMessage().getPayload().getValue(), "Hello Fede. How are you?");
     }
 
 }
