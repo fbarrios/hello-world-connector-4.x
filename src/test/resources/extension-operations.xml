@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:hello-world="http://www.mulesoft.org/schema/mule/hello-world"
+      xmlns="http://www.mulesoft.org/schema/mule/core"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+      http://www.mulesoft.org/schema/mule/hello-world http://www.mulesoft.org/schema/mule/hello-world/current/mule-hello-world.xsd">
+
+    <flow name="greet-flow-op">
+        <hello-world:greet friend="Fede" />
+    </flow>
+
+    <flow name="say-goodbye-flow-op">
+        <hello-world:say-goodbye friend="Fede" />
+    </flow>
+
+</mule>
