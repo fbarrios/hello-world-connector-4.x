@@ -11,7 +11,7 @@ import org.mule.runtime.extension.api.annotation.Alias;
 import org.mule.runtime.extension.api.annotation.param.ParameterGroup;
 import org.mule.runtime.extension.api.annotation.param.display.Placement;
 
-@Alias("config")
+@Alias("basic")
 public class BasicAuthConnectionProvider implements ConnectionProvider<HelloWorldConnection> {
 
     @ParameterGroup(name = "Connection")

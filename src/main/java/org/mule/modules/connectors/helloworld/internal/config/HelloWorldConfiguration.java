@@ -21,9 +21,6 @@ import org.mule.runtime.extension.api.annotation.param.display.DisplayName;
 })
 public class HelloWorldConfiguration {
 
-    /**
-     * Greeting message
-     */
     @Parameter
     @Optional(defaultValue = "Hello")
     private String greeting;
@@ -33,19 +30,10 @@ public class HelloWorldConfiguration {
     private String farewell;
 
 
-    /**
-     * Set greeting message
-     *
-     * @param greeting
-     *            the greeting message
-     */
     public void setGreeting(String greeting) {
         this.greeting = greeting;
     }
 
-    /**
-     * Get greeting message
-     */
     public String getGreeting() {
         return this.greeting;
     }

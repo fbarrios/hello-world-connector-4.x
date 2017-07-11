@@ -7,9 +7,11 @@ import org.mule.modules.connectors.helloworld.internal.connection.TokenConnectio
 import org.mule.runtime.api.connection.ConnectionException;
 import org.mule.runtime.api.connection.ConnectionProvider;
 import org.mule.runtime.api.connection.ConnectionValidationResult;
+import org.mule.runtime.extension.api.annotation.Alias;
 import org.mule.runtime.extension.api.annotation.param.ParameterGroup;
 import org.mule.runtime.extension.api.annotation.param.display.Placement;
 
+@Alias("token")
 public class TokenConnectionProvider implements ConnectionProvider<HelloWorldConnection> {
 
     @ParameterGroup(name = "Connection")
