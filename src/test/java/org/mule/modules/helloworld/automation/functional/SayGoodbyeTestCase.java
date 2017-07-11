@@ -6,27 +6,27 @@ import org.mule.runtime.core.api.Event;
 
 import static org.junit.Assert.assertEquals;
 
-public class GreetTestCase extends MuleArtifactFunctionalTestCase {
+public class SayGoodbyeTestCase extends MuleArtifactFunctionalTestCase {
 
-    public static final String FLOW_CONFIG_LOCATION = "flows/operation-greet-test-flows.xml";
+    public static final String FLOW_CONFIG_LOCATION = "flows/operation-say-goodbye-test-flows.xml";
 
     @Override
     protected String[] getConfigFiles() {
-        return new String[] { FLOW_CONFIG_LOCATION };
+        return new String[]{FLOW_CONFIG_LOCATION};
     }
 
     @Test
     public void testGreetFlowBasicAuth() throws Exception {
-        Event event = flowRunner("greet-basic-flow").withPayload("Fede").run();
+        Event event = flowRunner("say-goodbye-basic-flow").withPayload("Fede").run();
         String result = (String) event.getMessage().getPayload().getValue();
-        assertEquals("Good morning Fede!", result);
+        assertEquals("Good bye Fede!", result);
     }
 
     @Test
     public void testGreetFlowTokenAuth() throws Exception {
-        Event event = flowRunner("greet-token-flow").withPayload("Fede").run();
+        Event event = flowRunner("say-goodbye-token-flow").withPayload("Fede").run();
         String result = (String) event.getMessage().getPayload().getValue();
-        assertEquals("Hello Fede!", result);
+        assertEquals("Bye Fede!", result);
     }
 
 }

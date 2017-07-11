@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:hello-world="http://www.mulesoft.org/schema/mule/hello-world"
+      xmlns="http://www.mulesoft.org/schema/mule/core"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+      http://www.mulesoft.org/schema/mule/hello-world http://www.mulesoft.org/schema/mule/hello-world/current/mule-hello-world.xsd">
+
+    <hello-world:config name="config-basic" greeting="Good morning">
+        <hello-world:basic-connection username="admin" password="admin" />
+    </hello-world:config>
+
+    <hello-world:config name="config-token">
+        <hello-world:token-connection token="aToken" secret="aSecret" />
+    </hello-world:config>
+    
+    <flow name="greet-basic-flow">
+        <hello-world:greet config-ref="config-basic" friend="#[payload]" />
+    </flow>
+
+    <flow name="greet-token-flow">
+        <hello-world:greet config-ref="config-token" friend="#[payload]" />
+    </flow>
+
+</mule>
