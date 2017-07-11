@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:context="http://www.springframework.org/schema/context"
       xmlns:hello-world="http://www.mulesoft.org/schema/mule/hello-world"
-      xmlns="http://www.mulesoft.org/schema/mule/core"
       xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-      http://www.mulesoft.org/schema/mule/hello-world http://www.mulesoft.org/schema/mule/hello-world/current/mule-hello-world.xsd">
+                          http://www.mulesoft.org/schema/mule/hello-world http://www.mulesoft.org/schema/mule/hello-world/current/mule-hello-world.xsd">
+
+    <context:property-placeholder location="automation-credentials.properties" />
 
     <hello-world:config name="config-basic" greeting="Good morning">
-        <hello-world:basic-connection username="admin" password="admin" />
+        <hello-world:basic-connection username="${basic.username}" password="${basic.password}" />
     </hello-world:config>
 
     <hello-world:config name="config-token">
-        <hello-world:token-connection token="aToken" secret="aSecret" />
+        <hello-world:token-connection token="${token.token}" secret="${token.secret}" />
     </hello-world:config>
     
     <flow name="greet-basic-flow">
